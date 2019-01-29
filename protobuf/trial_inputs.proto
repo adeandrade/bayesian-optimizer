@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package com.wattpad.bayesian_optimizer;
+
+
+message TrialInputs {
+    string version = 1;
+    repeated double inputs = 2;
+}

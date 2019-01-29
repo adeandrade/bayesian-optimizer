@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package com.wattpad.bayesian_optimizer;
+
+
+message ValueBounds {
+    double lower = 1;
+    double upper = 2;
+}
+
+message Input {
+    string name = 1;
+    ValueBounds bounds = 2;
+}
+
+message CompletedTrial {
+    repeated double inputs = 1;
+    repeated double targets = 2;
+}
+
+message GaussianProcessData {
+    string id = 1;
+    repeated Input inputs = 2;
+    repeated string target_names = 3;
+
+    double sigma = 4;
+    double kernel_constant = 5;
+    repeated double length_scales = 6;
+    ValueBounds length_scale_bounds = 7;
+
+    repeated CompletedTrial completed_trials = 8;
+}
